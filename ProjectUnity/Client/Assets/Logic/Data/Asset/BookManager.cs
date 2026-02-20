@@ -26,26 +26,26 @@ namespace RG.Zeluda
         /// <param name="id"></param>
         public void AddBook(int id)
         {
-            //if (id == 1200001) { return; }
-            //if (bookList.Contains(id) || spBookList.Contains(id)) { return; }
-            //int len = makeAry.Length;
-            //for (int i = 0; i < len; i++)
-            //{
-            //    MakeCA ca = makeAry[i];
-            //    if (FindItem(ca, id) == true)
-            //    {
-            //        if (bookList.Contains(ca.id) == false)
-            //        {
-            //            tipManager.InitTip("�����ʻ�ã���������ؼҾ�" + ca.name);
-            //            bookList.Add(ca.id);
-            //        }
-            //    }
-            //}
+            if (id == 0) { return; }
+            if (bookList.Contains(id) || spBookList.Contains(id)) { return; }
+            bookList.Add(id);
+            AssetFactory assetFactory = CBus.Instance.GetFactory(FactoryName.AssetFactory) as AssetFactory;
+            AssetCA ca = assetFactory != null ? assetFactory.GetCA(id) as AssetCA : null;
+            if (ca != null)
+            {
+                TipManager.Tip($"解锁图鉴：{ca.name}");
+            }
         }
      
         public void RefreshAsset()
         {
-
+            AssetManager am = CBus.Instance.GetManager(ManagerName.AssetManager) as AssetManager;
+            if (am == null) { return; }
+            foreach (var kv in am.assetDic)
+            {
+                if (kv.Value <= 0) { continue; }
+                AddBook(kv.Key);
+            }
         }
     }
 }

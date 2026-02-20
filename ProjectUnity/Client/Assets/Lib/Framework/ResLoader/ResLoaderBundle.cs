@@ -103,10 +103,22 @@ public class ResLoaderBundle : IResLoader
 
     public void InitParams()
     {
+        if (_dependList == null || _dependList.Count == 0)
+        {
+            GetDependList();
+        }
     }
     public void Clear()
     {
-
+        UnloadRes(ABUnit.DisposType.ChangeScene);
+        _loadAsyncWaitDic.Clear();
+        _loadingAsyncDic.Clear();
+        _loadedAssetDic.Clear();
+        _unloadWaitList.Clear();
+        _tempABUnitList.Clear();
+#if UNITY_EDITOR
+        fileNames.Clear();
+#endif
     }
 
     public void Destroy()

@@ -10,12 +10,12 @@ public class ResLoaderEditor : IResLoader
 
     public void Clear()
     {
-
+        Resources.UnloadUnusedAssets();
     }
 
     public void Destroy()
     {
-
+        Resources.UnloadUnusedAssets();
     }
 
     public T GetRes<T>(string path) where T : Object
@@ -73,19 +73,20 @@ public class ResLoaderEditor : IResLoader
 
     public void InitParams()
     {
-
+        Resources.UnloadUnusedAssets();
     }
 
     public void LoadAsync(string path, System.Action callback)
     {
-
+        GetRes<Object>(path);
+        callback?.Invoke();
     }
     /// <summary>
     /// ж��ָ���زģ����ü�����-1
     /// </summary>
     public void UnloadRes(string resPath)
     {
-
+        Resources.UnloadUnusedAssets();
     }
     /// <summary>
     /// ж��ָ��ж�����͵��زģ�
@@ -95,6 +96,6 @@ public class ResLoaderEditor : IResLoader
     /// <param name="disposType"></param>
     public void UnloadRes(ABUnit.DisposType disposType)
     {
-
+        Resources.UnloadUnusedAssets();
     }
 }

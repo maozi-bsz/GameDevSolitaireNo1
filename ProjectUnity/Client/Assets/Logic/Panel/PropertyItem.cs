@@ -17,6 +17,7 @@ public class PropertyItem : MonoBehaviour
     }
     public void OnClick()
     {
-    
+        if (item == null) { return; }
+        TipManager.Tip($"{item.Name} x{lbl_cnt.text}");
     }
 }

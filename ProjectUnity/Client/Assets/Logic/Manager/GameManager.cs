@@ -69,19 +69,65 @@ namespace RG.Zeluda
 		}
 		public void RefreshAll()
 		{
-
+			UIManager um = CBus.Instance.GetManager(ManagerName.UIManager) as UIManager;
+			if (um == null) { return; }
+			MainPanel main = um.GetPanel("MainPanel") as MainPanel;
+			if (main != null)
+			{
+				main.SetDay(day);
+				main.SetTime(time);
+				main.RefreshBeg();
+			}
+			FoodPanel foodPanel = um.OpenPanel("FoodPanel") as FoodPanel;
+			if (foodPanel != null)
+			{
+				foodPanel.Refresh();
+			}
+			LevelManager levelManager = CBus.Instance.GetManager(ManagerName.LevelManager) as LevelManager;
+			if (levelManager != null)
+			{
+				levelManager.updateexp();
+			}
 		}
 
 		public void PlayerInit()
 		{
-			//Money = StartData.inst.money;
-			//playerAsset = new PlayerAsset();
-
-			//foreach (var item in StartData.inst.item)
-			//{
-			//	string[] inum = item.Split(':');
-			//	playerAsset.AddItem(int.Parse(inum[0]), int.Parse(inum[1]));
-			//}
+			bag.Clear();
+			AssetManager am = CBus.Instance.GetManager(ManagerName.AssetManager) as AssetManager;
+			if (am != null)
+			{
+				am.assetDic.Clear();
+			}
+			if (StartData.inst != null)
+			{
+				if (am != null)
+				{
+					am.Add(1200001, StartData.inst.money, false);
+				}
+				foreach (var item in StartData.inst.item)
+				{
+					if (string.IsNullOrEmpty(item)) { continue; }
+					string[] inum = item.Split(':');
+					if (inum.Length < 2) { continue; }
+					int id;
+					int cnt;
+					if (int.TryParse(inum[0], out id) == false) { continue; }
+					if (int.TryParse(inum[1], out cnt) == false) { continue; }
+					if (bag.ContainsKey(id))
+					{
+						bag[id] += cnt;
+					}
+					else
+					{
+						bag.Add(id, cnt);
+					}
+					if (am != null)
+					{
+						am.Add(id, cnt, false);
+					}
+				}
+			}
+			RefreshAll();
 		}
 		public void NextDayDailog()
 		{
@@ -158,7 +204,16 @@ namespace RG.Zeluda
 		}
 		public void GameOver()
 		{
-
+			work = null;
+			TipManager.Tip("游戏结束");
+			UIManager um = CBus.Instance.GetManager(ManagerName.UIManager) as UIManager;
+			if (um != null)
+			{
+				um.CloseAll();
+				um.OpenPanel("LobbyPanel");
+			}
+			day = 1;
+			time = start_time;
 		}
 		public bool CheckTime(int t)
 		{

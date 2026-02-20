@@ -80,7 +80,13 @@ public class ResManager : ManagerBase
     /// </summary>
     public void LoadRes()
     {
-
+        List<string> list = _preloadHandler.GetResList();
+        for (int i = 0; i < list.Count; i++)
+        {
+            string path = list[i];
+            if (string.IsNullOrEmpty(path)) { continue; }
+            _resloader.LoadAsync(path, null);
+        }
     }
     /// <summary>
     /// 存储一个BuildInMaterial
