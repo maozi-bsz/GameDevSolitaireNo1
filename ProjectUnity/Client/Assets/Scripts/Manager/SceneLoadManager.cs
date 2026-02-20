@@ -41,7 +41,7 @@ public class SceneLoadManager : ManagerBase
 		}
 		LoadSceneParameters parameters = new LoadSceneParameters(LoadSceneMode.Additive);
 		curScene = SceneManager.LoadScene(sceneName, parameters);
-		LoadPrefab(); // µ÷ÓÃ³É¹¦»Øµ÷
+		LoadPrefab(); // ï¿½ï¿½ï¿½Ã³É¹ï¿½ï¿½Øµï¿½
 	}
 	public void Load(int id)
 	{
@@ -58,7 +58,7 @@ public class SceneLoadManager : ManagerBase
 		}
 		LoadSceneParameters parameters = new LoadSceneParameters(LoadSceneMode.Additive);
 		curScene = SceneManager.LoadScene(mapCA.scene, parameters);
-		LoadPrefab(); // µ÷ÓÃ³É¹¦»Øµ÷
+		LoadPrefab(); // ï¿½ï¿½ï¿½Ã³É¹ï¿½ï¿½Øµï¿½
 	}
 
 	public void LoadPrefab()
@@ -71,7 +71,7 @@ public class SceneLoadManager : ManagerBase
 		}
 		GameManager gm = CBus.Instance.GetManager(ManagerName.GameManager) as GameManager;
 		int day = Mathf.Clamp(gm.day - 1, 0, mapCA.prefab.Length - 1);
-        //Ëæ×ÅÌìÊýÔö¼Ó£¬µØÍ¼»á¼ÓÔØ²»Í¬µÄÔ¤ÖÆÌå?
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Ø²ï¿½Í¬ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½?
         UIManager um = CBus.Instance.GetManager(ManagerName.UIManager) as UIManager;
 		um.OpenPanel(mapCA.prefab[day]);
 		//GameObject obj = Resources.Load<GameObject>(mapCA.prefab[day]);
@@ -81,18 +81,18 @@ public class SceneLoadManager : ManagerBase
 
 		//if (startPoint == null)
 		//{
-		//	CharacterController.Inst.transform.position = Vector3.zero;
-		//	CharacterController.Inst.transform.eulerAngles = Vector3.zero;
-		//	CharacterController.Inst.agent.destination = Vector3.zero;
+		//	PlayerCharacterController.Inst.transform.position = Vector3.zero;
+		//	PlayerCharacterController.Inst.transform.eulerAngles = Vector3.zero;
+		//	PlayerCharacterController.Inst.agent.destination = Vector3.zero;
 		//}
 		//else {
-		//	CharacterController.Inst.transform.position = startPoint.position;
-		//	CharacterController.Inst.transform.eulerAngles = startPoint.eulerAngles;
-		//	CharacterController.Inst.agent.destination = startPoint.position;
+		//	PlayerCharacterController.Inst.transform.position = startPoint.position;
+		//	PlayerCharacterController.Inst.transform.eulerAngles = startPoint.eulerAngles;
+		//	PlayerCharacterController.Inst.agent.destination = startPoint.position;
 		//}
 
-		//CharacterController.Inst.ani.Play(mapCA.pani);
-		//CharacterController.Inst.moveLock = mapCA.ctrl == 0;
+		//PlayerCharacterController.Inst.ani.Play(mapCA.pani);
+		//PlayerCharacterController.Inst.moveLock = mapCA.ctrl == 0;
 
 	}
 	public void LoadSimplePrefab(string prefab)

@@ -99,7 +99,7 @@ public class UIManager : ManagerBase
 		PanelBase panel = go_panel.GetComponent<PanelBase>();
 		panel.Init();
 		panel.OnCloseCallback = closeAction;
-		go_panel.transform.parent = tran_float;
+		go_panel.transform.SetParent(tran_float, false);
 		go_panel.transform.localPosition = Vector3.zero;
 		floatDic.Add(key, panel);
 		return panel;

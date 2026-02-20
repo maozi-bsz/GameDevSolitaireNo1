@@ -24,13 +24,13 @@ public class MapItem : MonoBehaviour
 		//#if !UNITY_EDITOR
 		//		if (gm.CostTime(2) == false)
 		//		{
-		//			TipManager.Tip("时间不足2小时");
+		//			TipManager.Tip("鏃堕棿涓嶈冻2灏忔椂");
 		//			return;
 		//		}
 		//#endif
 		if (gm.CheckTime(2) == false)
 		{
-			TipManager.Tip("时间不足2小时");
+			TipManager.Tip("鏃堕棿涓嶈冻2灏忔椂");
 			return;
 		}
 		UIManager uiManager = CBus.Instance.GetManager(ManagerName.UIManager) as UIManager;

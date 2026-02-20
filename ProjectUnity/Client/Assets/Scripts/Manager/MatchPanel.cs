@@ -6,37 +6,37 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 /***
  * 
- * Ö»ÓĞÇ°ÈıÌìµÄÄÚÈİ£¬ÆäËû³¡¾°Î´ÖÆ×÷¡£
-
-ÈüÂíĞ¡ÓÎÏ· :
-Ğ´ËÄ¸öÂíÆ¥µÄ¼¼ÄÜ
-ÂíÆ¥¾­ÑéÖµ½ø¶ÈÌõÕ¹Ê¾
-Êó±êĞü¸¡¼¼ÄÜÏÔÊ¾¼¼ÄÜÃû³Æ
-±ÈÈü½áÊøºóµ¯´°ÏÔÊ¾½á¹ûºÍ½áÊø°´Å¥
-ÓÎÏ·½áÊøºó£¬µ¯³ö¶Ô»°£ººÃÒ®£¡Ê§°Üºóµ¯³ö£ºÏÂ´ÎÒ»¶¨Ö®ÀàµÄ¶Ô»°£»
-Ã¿ÌìÖ»ÄÜÈüÒ»´ÎÂí;
-ÈüÂíÃ¿ÎåÌìÒ»´Î,Ã¿ÌìÔçÉÏ12µãÒÔÇ°¿ÉÒÔ²Î¼Ó;
-ÂíÆ¥Ãû³Æ/Î»ÖÃËæ»ú»¯
-ÖÆ×÷¼¼ÄÜÍ¼±êºÍÈüÂí/Âí³¡µÄÍ¼Æ¬;
-Íæ¼Ò²ÄÖÊ
-ÈüÂí¶¯»­
-¼¼ÄÜ°´¼üÌáÊ¾ÓëÊ¹ÓÃºóµÄÏ¨ÃğÕÚÕÖ£¬Î´¼¤»îÕÚÕÖ
-¼¼ÄÜÊÍ·ÅÒôĞ§;
-ÈüÂíbgm£»
-ÊıÖµµ÷Õû;
-È¡Ïû×¢ÊÍ
-¼¼ÄÜµÈ¼¶¼ì²âÉèÖÃ
-ÌáÊ¾Î´½âËø
-
-Î´ÊµÏÖ£º
-Âí¶ùÉı¼¶Ê±µÄÒôĞ§£»
-Èç¹ûÁ¬ĞøÈı´Î»ñÊ¤£¬ÏÂ´Î½øÈëÈü³¡»á½øÈë¶Ô»°£º¸æÖªÊäµô±ÈÈü»á»ñµÃxxxx£»
-ÓÎÏ·½áÊøºó°´ÕÕÅÅÃûÂí¶ù»ñµÃ¾­ÑéÖµ£»
-ÄÁ²İÖÖÖ²ÓÅ»¯
-
-Ê§°ÜÊı´Îºó£¬ºÃĞÄÁÚ¾Ó°ïÃ¦¿ª¿Ñ¸ûµØ£º
-GroundManager gm = CBus.Instance.GetManager(ManagerName.GroundManager) as GroundManager;
-gm.BuildGround(9);
+ * åªæœ‰å‰ä¸‰å¤©çš„å†…å®¹ï¼Œå…¶ä»–åœºæ™¯æœªåˆ¶ä½œã€‚
+ *
+ * èµ›é©¬å°æ¸¸æˆ :
+ * å†™å››ä¸ªé©¬åŒ¹çš„æŠ€èƒ½
+ * é©¬åŒ¹ç»éªŒå€¼è¿›åº¦æ¡å±•ç¤º
+ * é¼ æ ‡æ‚¬æµ®æŠ€èƒ½æ˜¾ç¤ºæŠ€èƒ½åç§°
+ * æ¯”èµ›ç»“æŸåå¼¹çª—æ˜¾ç¤ºç»“æœå’Œç»“æŸæŒ‰é’®
+ * æ¸¸æˆç»“æŸåï¼Œå¼¹å‡ºå¯¹è¯ï¼šå¥½è€¶ï¼å¤±è´¥åå¼¹å‡ºï¼šä¸‹æ¬¡ä¸€å®šä¹‹ç±»çš„å¯¹è¯ï¼›
+ * æ¯å¤©åªèƒ½èµ›ä¸€æ¬¡é©¬;
+ * èµ›é©¬æ¯äº”å¤©ä¸€æ¬¡,æ¯å¤©æ—©ä¸Š12ç‚¹ä»¥å‰å¯ä»¥å‚åŠ ;
+ * é©¬åŒ¹åç§°/ä½ç½®éšæœºåŒ–
+ * åˆ¶ä½œæŠ€èƒ½å›¾æ ‡å’Œèµ›é©¬/é©¬åœºçš„å›¾ç‰‡;
+ * ç©å®¶æè´¨
+ * èµ›é©¬åŠ¨ç”»
+ * æŠ€èƒ½æŒ‰é”®æç¤ºä¸ä½¿ç”¨åçš„ç†„ç­é®ç½©ï¼Œæœªæ¿€æ´»é®ç½©
+ * æŠ€èƒ½é‡Šæ”¾éŸ³æ•ˆ;
+ * èµ›é©¬bgmï¼›
+ * æ•°å€¼è°ƒæ•´;
+ * å–æ¶ˆæ³¨é‡Š
+ * æŠ€èƒ½ç­‰çº§æ£€æµ‹è®¾ç½®
+ * æç¤ºæœªè§£é”
+ *
+ * æœªå®ç°ï¼š
+ * é©¬å„¿å‡çº§æ—¶çš„éŸ³æ•ˆï¼›
+ * å¦‚æœè¿ç»­ä¸‰æ¬¡è·èƒœï¼Œä¸‹æ¬¡è¿›å…¥èµ›åœºä¼šè¿›å…¥å¯¹è¯ï¼šå‘ŠçŸ¥è¾“æ‰æ¯”èµ›ä¼šè·å¾—xxxxï¼›
+ * æ¸¸æˆç»“æŸåæŒ‰ç…§æ’åé©¬å„¿è·å¾—ç»éªŒå€¼ï¼›
+ * ç‰§è‰ç§æ¤ä¼˜åŒ–
+ *
+ * å¤±è´¥æ•°æ¬¡åï¼Œå¥½å¿ƒé‚»å±…å¸®å¿™å¼€å¦è€•åœ°ï¼š
+ * GroundManager gm = CBus.Instance.GetManager(ManagerName.GroundManager) as GroundManager;
+ * gm.BuildGround(9);
  * 
  * 
  * 
@@ -167,7 +167,7 @@ public class MatchPanel : PanelBase
 
         matchInit();
 
-        ShowDialog(() => matchStart(), "ÈüÂí¿ªÊ¼");
+        ShowDialog(() => matchStart(), "èµ›é©¬å¼€å§‹");
         //matchStart();
         if (trackRect != null)
             trackRect.sizeDelta = new Vector2(trackLength, trackRect.sizeDelta.y);
@@ -192,13 +192,13 @@ public class MatchPanel : PanelBase
         isRacing = false;
         UpdateRaceUI();
 
-        if (winner == "Íæ¼Ò")
+        if (winner == "ç©å®¶")
         {
-            ShowDialog(() => ShowMatchResultPanel(), "ÈüÂíÊ¤Àû");
+            ShowDialog(() => ShowMatchResultPanel(), "èµ›é©¬èƒœåˆ©");
         }
         else
         {
-            ShowDialog(() => ShowMatchResultPanel(), "ÈüÂíÊ§Àû");
+            ShowDialog(() => ShowMatchResultPanel(), "èµ›é©¬å¤±åˆ©");
         }
 
     }
@@ -229,7 +229,7 @@ public class MatchPanel : PanelBase
             {
                 if (Input.GetKeyDown(skill.skillkey))
                 {
-                    AudioManager.Inst.Play("BGM/µã»÷°´Å¥");
+                    AudioManager.Inst.Play("BGM/ç‚¹å‡»æŒ‰é’®");
                     if (skill.skillActive)
                     {
                         skill.Cast();
@@ -238,9 +238,9 @@ public class MatchPanel : PanelBase
                     else
                     { 
                         if(skill.unlock)
-                            TipManager.Tip("Î´½âËø¸Ã¼¼ÄÜ!");
+                            TipManager.Tip("æœªè§£é”è¯¥æŠ€èƒ½!");
                         else
-                            TipManager.Tip("ÎŞ·¨ÔÙÊ¹ÓÃÁË!");
+                            TipManager.Tip("æ— æ³•å†ä½¿ç”¨äº†!");
                     }
                 }
             }
@@ -273,7 +273,7 @@ public class MatchPanel : PanelBase
 
             float percent = Mathf.Clamp01(h.position / finishLine) * 100f;
 
-            txt.text = $"{h.name} : {percent:F0}%\nËÙ¶È: {h.speed:F2}";
+            txt.text = $"{h.name} : {percent:F0}%\né€Ÿåº¦: {h.speed:F2}";
         }
 
         var player = horses.Find(x => x.isPlayer);
@@ -287,7 +287,7 @@ public class MatchPanel : PanelBase
         }
 
         if (skillHintText != null && !isSkllShowing)
-            skillHintText.text = "°´ÏÂ¼¼ÄÜ¼ü¿ÉÊ¹ÓÃ¼¼ÄÜ!\nÃ¿¸ö¼¼ÄÜÖ»ÄÜÊ¹ÓÃÒ»´Î";
+            skillHintText.text = "æŒ‰ä¸‹æŠ€èƒ½é”®å¯ä½¿ç”¨æŠ€èƒ½!\næ¯ä¸ªæŠ€èƒ½åªèƒ½ä½¿ç”¨ä¸€æ¬¡";
     }
 
     void UpdateRaceUI()
@@ -303,7 +303,7 @@ public class MatchPanel : PanelBase
                     i.gameObject.SetActive(false);
                 }
                 raceStatusText.gameObject.SetActive(true);
-                raceStatusText.text = $"±ÈÈüÒÑ½áÊø£¬Ê¤Õß£º{winner}";
+                raceStatusText.text = $"æ¯”èµ›å·²ç»“æŸï¼Œèƒœè€…ï¼š{winner}";
                 return;
             }
             else
@@ -321,7 +321,7 @@ public class MatchPanel : PanelBase
             if (txt != null)
             {
 
-                txt.text = $"{h.name} : 0%  ËÙ¶È:{h.speed:F2}";
+                txt.text = $"{h.name} : 0%  é€Ÿåº¦:{h.speed:F2}";
             }
         }
 
@@ -389,8 +389,8 @@ public class MatchPanel : PanelBase
         matchResultPanel.SetActive(true);
 
         if (resultText != null)
-            resultText.text = $"±ÈÈü½áÊø!\nÊ¤Õß:{winner}";
-        AudioManager.Inst.Play("BGM/ĞÂµÄÒ»Ìì¿ªÊ¼");
+            resultText.text = $"æ¯”èµ›ç»“æŸ!\nèƒœè€…:{winner}";
+        AudioManager.Inst.Play("BGM/æ–°çš„ä¸€å¤©å¼€å§‹");
     }
 
 #endregion

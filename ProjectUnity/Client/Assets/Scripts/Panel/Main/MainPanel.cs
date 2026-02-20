@@ -39,7 +39,7 @@ public class MainPanel : PanelBase
 	}
 	public void SetDay(int day)
 	{
-		lbl_day.text = $"��{day}��";
+		lbl_day.text = $"第{day}天";
 		SetTimeSlice(0, 23, Color.white);
 		if ((day + 1) % 3 == 0) cangomatch = true;
 		else cangomatch = false;
@@ -51,7 +51,7 @@ public class MainPanel : PanelBase
 	}
 	public void OnRelaxClick()
 	{
-		AudioManager.Inst.Play("BGM/��ĥʱ��");
+		AudioManager.Inst.Play("BGM/消磨时间");
 		GameManager gm = CBus.Instance.GetManager(ManagerName.GameManager) as GameManager;
 		gm.CostTime(1);
 	}
@@ -70,7 +70,7 @@ public class MainPanel : PanelBase
 			return;
 		}
 		map = uiManager.OpenPanel("MapPanel") as MapPanel;
-		AudioManager.Inst.Play("BGM/�����ť");
+		AudioManager.Inst.Play("BGM/点击按钮");
 		map.InitMap();
 	}
 	public void Hoe()
@@ -78,7 +78,7 @@ public class MainPanel : PanelBase
 		GameManager ggm = CBus.Instance.GetManager(ManagerName.GameManager) as GameManager;
 		if (ggm.CheckTime(1) == false)
 		{
-			TipManager.Tip("ʱ�䲻��1Сʱ");
+			TipManager.Tip("时间不足1小时");
 			return;
 		}
 		GroundManager gm = CBus.Instance.GetManager(ManagerName.GroundManager) as GroundManager;
@@ -91,7 +91,7 @@ public class MainPanel : PanelBase
 		GameManager ggm = CBus.Instance.GetManager(ManagerName.GameManager) as GameManager;
 		if (ggm.CheckTime(1) == false)
 		{
-			TipManager.Tip("ʱ�䲻��1Сʱ");
+			TipManager.Tip("时间不足1小时");
 			return;
 		}
 		GroundManager gm = CBus.Instance.GetManager(ManagerName.GroundManager) as GroundManager;
@@ -103,17 +103,17 @@ public class MainPanel : PanelBase
 		GameManager ggm = CBus.Instance.GetManager(ManagerName.GameManager) as GameManager;
 		if (ggm.CheckTime(1) == false)
 		{
-			TipManager.Tip("ʱ�䲻��1Сʱ");
+			TipManager.Tip("时间不足1小时");
 			return;
 		}
 		GroundManager gm = CBus.Instance.GetManager(ManagerName.GroundManager) as GroundManager;
-		//�˴�Ӧ�ô�����壬ѡ��һ����Ҫ��ֲ�Ķ���
+		// 此处应该弹出菜单，选择一个需要种植的物品
 		int num = gm.Plant(1, 1100002);
 		ggm.CostTime(num);
 	}
 	public void Feed() {
 		AssetManager am = CBus.Instance.GetManager(ManagerName.AssetManager) as AssetManager;
-		if (am.CheckAsset(1100003, 1) == false) { TipManager.Tip("���ݲ���1"); return; }
+		if (am.CheckAsset(1100003, 1) == false) { TipManager.Tip("牧草不足1"); return; }
 		am.Add(1100003, -1);
 		LevelManager levelManager = CBus.Instance.GetManager(ManagerName.LevelManager) as LevelManager;
 		levelManager.AddExp(20);
@@ -131,14 +131,14 @@ public class MainPanel : PanelBase
 
 
 
-            TipManager.Tip($"�������´ο���ʱ��:��{((((gm.day+1) / 3 + 1) * 3)-1)}��,����֮ǰ");
+            TipManager.Tip($"请等待下次开放时间:第{((((gm.day+1) / 3 + 1) * 3)-1)}天,中午之前");
             return;
 		}
 
         if (gm.time < 12)
         {
 			Debug.Log(gm.time);
-            TipManager.Tip("����ֻ����������ǰ�μӣ�");
+            TipManager.Tip("比赛只能在中午之前参加！");
             return;
         }
 
@@ -153,7 +153,7 @@ public class MainPanel : PanelBase
 	}
 	public void RefreshBeg()
 	{
-		AudioManager.Inst.Play("BGM/ʧȥ����");
+		AudioManager.Inst.Play("BGM/失去道具");
 		GameManager gm = CBus.Instance.GetManager(ManagerName.GameManager) as GameManager;
 		AssetFactory af = CBus.Instance.GetFactory(FactoryName.AssetFactory) as AssetFactory;
 		foreach (var item in begItem)

@@ -74,7 +74,7 @@ public class MapPanel : PanelBase
 		}
 		if (trans_content.childCount == 0)
 		{
-			TipManager.Tip("��ʱû�п��ƶ��ĵص㣡");
+			TipManager.Tip("此时没有可移动的地点！");
 			Close();
 		}
 
@@ -87,7 +87,7 @@ public class MapPanel : PanelBase
 	public override void Close()
 	{
 		isOpen = false;
-		AudioManager.Inst.Play("BGM/�����ť");
+		AudioManager.Inst.Play("BGM/点击按钮");
 		gameObject.SetActive(false);
 		base.Close();
 		UIManager uiManager = CBus.Instance.GetManager(ManagerName.UIManager) as UIManager;

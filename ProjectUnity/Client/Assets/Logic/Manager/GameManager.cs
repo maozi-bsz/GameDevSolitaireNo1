@@ -27,7 +27,7 @@ namespace RG.Zeluda
 			time = start_time;
 
 			DialogManager dm = CBus.Instance.GetManager(ManagerName.DialogManager) as DialogManager;
-			dm.ShowDialog("ÓÎÏ·¿ªÊ¼", () =>
+			dm.ShowDialog("æ¸¸æˆå¼€å§‹", () =>
 			{
 				UIManager um = CBus.Instance.GetManager(ManagerName.UIManager) as UIManager;
 				um.ClosePanel("LobbyPanel");
@@ -45,7 +45,7 @@ namespace RG.Zeluda
                     if (l == 2 || l == 3 || l == 5 || l == 7)
 					{
 
-                        TipManager.Tip("Âí¶ùÑ§»áÁËĞÂµÄ¼¼ÄÜ£¡");
+                        TipManager.Tip("é©¬å„¿å­¦ä¼šäº†æ–°çš„æŠ€èƒ½ï¼");
                     }
 				};
                 AssetManager am = CBus.Instance.GetManager(ManagerName.AssetManager) as AssetManager;
@@ -95,7 +95,7 @@ namespace RG.Zeluda
 			GroundManager gdm = CBus.Instance.GetManager(ManagerName.GroundManager) as GroundManager;
 			gdm.DayEnd();
 
-			TipManager.Tip("ĞÂµÄÒ»Ìì¿ªÊ¼À²£¡");
+			TipManager.Tip("æ–°çš„ä¸€å¤©å¼€å§‹å•¦ï¼");
 			day++;
 			time = start_time;
 			UIManager um = CBus.Instance.GetManager(ManagerName.UIManager) as UIManager;
@@ -103,7 +103,7 @@ namespace RG.Zeluda
 			tp.StartTransition(() =>
 			{
 
-				AudioManager.Inst.Play("BGM/ĞÂµÄÒ»Ìì¿ªÊ¼");
+				AudioManager.Inst.Play("BGM/æ–°çš„ä¸€å¤©å¼€å§‹");
 
 				UIManager um1 = CBus.Instance.GetManager(ManagerName.UIManager) as UIManager;
 				MainPanel main = um1.GetPanel("MainPanel") as MainPanel;
@@ -140,7 +140,7 @@ namespace RG.Zeluda
 					if (day == 2)
 					{
 						main.ismatchlocked = true;
-						TipManager.Tip("ÈüÂí³¡¿ª·ÅÁË!");
+						TipManager.Tip("èµ›é©¬åœºå¼€æ”¾äº†!");
                     }
 				};
 			});
@@ -181,7 +181,7 @@ namespace RG.Zeluda
 			}
 			if (work != null && (max_time - time + t) > work.starttime)
 			{
-				TipManager.Tip($"²»ÄÜµ¢Îó{work.starttime}µãµÄ¹¤×÷");
+				TipManager.Tip($"ä¸èƒ½è€½è¯¯{work.starttime}ç‚¹çš„å·¥ä½œ");
 				return false;
 			}
 			time -= t;
@@ -192,9 +192,9 @@ namespace RG.Zeluda
 			{
 				if ((max_time - time) >= work.starttime)
 				{
-					//¿ªÊ¼¹¤×÷
+					//å¼€å§‹å·¥ä½œ
 					DialogPanel dp = um.OpenFloat("DialogPanel") as DialogPanel;
-					AudioManager.Inst.Play("BGM/ÀÍ¶¯Ê±¼ä¿ªÊ¼");
+					AudioManager.Inst.Play("BGM/åŠ³åŠ¨æ—¶é—´å¼€å§‹");
 					dp.StartDialog(work.alert);
 					dp.OnCallback = () =>
 					{
@@ -235,7 +235,7 @@ namespace RG.Zeluda
 				}
 			}
 			main.RefreshBeg();
-			TipManager.Tip($"Íê³ÉÁË{work.name} »ñµÃÁË{reward}");
+			TipManager.Tip($"å®Œæˆäº†{work.name} è·å¾—äº†{reward}");
 			work = null;
 		}
 		public static void Tip(string msg)
